@@ -3,13 +3,17 @@ const express = require("express"); //require == #include
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
+const io  = require('socket.io')(server);
+
 const LISTEN_PORT = 8080; //default port 80. We need to use something else.
 
-const ABS_STATIC_PATH = __dirname + '/public';
+//const ABS_STATIC_PATH = __dirname + '/public';
+app.use(express.static(__dirname + '/public')); //set root path of server ...
+
 //set our route
 app.get('/', function (req, res) {
-res.sendFile('goingUp.html', {root:ABS_STATIC_PATH}); //need absolute path so setting root
-});
+    res.sendFile( __dirname + '/public/homeScreen.html' );
+    });
 //require('aframe');
 //require('aframe-extras');
 
