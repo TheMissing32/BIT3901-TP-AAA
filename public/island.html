@@ -36,26 +36,30 @@
           //start all ambient music
           //ambientSounds.forEach(function(soundEntity) {
             //soundEntity.components.sound.playSound();
-          //});
+          //});groundTexture="none" groundColor="color: #blue" groundColor="color: #0006bf"
         }
       </script>
     </head>
     <body>
-    <a-scene>
-        <a-entity camera wasd-controls look-controls position="0 1.6 0">
+    <a-scene background="color: blue"  environment>
+        <a-entity camera wasd-controls look-controls kinematic-body position="0 1.6 0">
             <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
             <a-entity light="type:spot; intensity:1.4; castShadow:true; shadowBias:-0.0005; angle:40; penumbra:0.3;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
             
-            <!--Guys we can have a menu!!! (His also means lighthouse guy)-->
+
+            <!--Guys we can have a menu!!! (This also means lighthouse guy)-->
             <a-entity id="menu" position="-0.2 .1 -0.3" geometry="primitive: plane; height: 0.1; width: 0.1" material="color: blue;">
                 <a-entity text="value:Welcome!; 
-                          color:black; font:roboto; width:1.3; anchor:left; baseline:top; wrapCount:12;" position="-1.4 0.5 0.01" ></a-entity>
+                          color:white; font:roboto; width:0.2; anchor:left; baseline:top;" ></a-entity>
             </a-entity>
+
+            <!--Building island-->
         </a-entity>
-      
-        
-          <!--Forest for the soup/witch feel-->
-        <a-entity environment="preset:forest"></a-entity>
+            <a-entity static-body geometry="primitive: circle; radius: 80;" position="0, .1, 0" rotation="-90, 0, 0" material="color:green;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-cylinder dynamic-body position="1 0.75 -3" radius="0.5" height="1.5"></a-cylinder>
+            <a-box static-body position="-1 0.5 -3"></a-box> 
+            <!--Forest for the soup/witch feel-->
+        <!--<a-entity environment="preset:forest"></a-entity>-->
       </a-scene>
     </body>
 </html>
