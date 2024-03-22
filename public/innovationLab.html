@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Hello, WebVR! - A-Frame</title>
+      <meta name="description" content="Hello, WebVR! - A-Frame">
+      <!-- <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-environment-component@1.3.4/dist/aframe-environment-component.min.js"></script> -->
+      <script src="js/aframe.min.js"></script> <!-- aframe 1.5.0 -->
+      <!--<script src="js/aframe-physics-system.min.js"></script>-->
+      <script src="js/aframe-environment-component.min.js"></script> <!-- aframe-environment-component 1.3.4 -->
+      <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>      
+      <script src="js/create-objects.js"></script>
+      <script src="bundle.js"></script>
+      <script>
+        window.aframeDraggableComponent(window.AFRAME)
+      </script> 
+      <script src="https://cdn.jsdelivr.net/npm/aframe-mouse-dragndrop-component@latest/dist/index.js"></script>
+        
+      <!-- need a user gesture to allow sound on some browsers i.e. iOS -->
+      <link rel="stylesheet" href="/css/user-gesture.css">
+      <script>
+        AFRAME.registerComponent('start-experience', {
+          init: function () {
+            //we can't play sound on some browsers until we have some user interaction
+            //this means we should only start playing ambient music after this button is clicked
+            console.log('scene loaded');
+            document.querySelector('#user-gesture-button').style.display='block';
+          }
+        });
+        
+        //function called from user-gesture click
+        const startExperience = function() {
+          //hide user-gesture overlay
+          document.querySelector('#user-gesture-overlay').style.display='none';
+          
+          //});groundTexture="none" groundColor="color: #blue" groundColor="color: #0006bf"
+        }
+      </script>
+    </head>
+    <body>
+    <a-scene background="color: blue"  environment>
+        <a-entity camera wasd-controls look-controls kinematic-body position="0 1.6 0">
+            <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
+            <a-entity light="type:spot; intensity:1.4; castShadow:true; shadowBias:-0.0005; angle:40; penumbra:0.3;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
+            
+
+            <!--Guys we can have a menu!!! (This also means lighthouse guy)-->
+            <a-entity id="menu" position="-0.45 .195 -0.3" geometry="primitive: plane; height: 0.1; width: 0.1" material="color: blue;">
+                <a-entity text="value:Welcome!; 
+                          color:white; font:roboto; width:0.2; anchor:left; baseline:top;" ></a-entity>
+            </a-entity>
+
+            <!--Building island-->
+        </a-entity>
+            <a-entity id="floor" static-body geometry="primitive: plane; width: 80; height:80;" position="0, 1, 0" rotation="-90, 0, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-entity id="wall" static-body geometry="primitive: plane; width: 80; height:40;" position="40, .05, 0" rotation="0, -90, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-entity id="wall" static-body geometry="primitive: plane; width: 80; height:40;" position="-40, .05, 0" rotation="0, 90, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-entity id="wall" static-body geometry="primitive: plane; width: 80; height:40;" position="0, .05, 40" rotation="0, 180, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-entity id="wall" static-body geometry="primitive: plane; width: 80; height:40;" position="0, .05, -40" rotation="0, 0, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+
+            <!--Forest for the soup/witch feel-->
+        <!--<a-entity environment="preset:forest"></a-entity>-->
+      </a-scene>
+    </body>
+</html>
