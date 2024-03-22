@@ -38,7 +38,7 @@
       </script>
     </head>
     <body>
-    <a-scene background="color: blue"  environment>
+    <a-scene background="color: blue"  environment="ground: flat;">
         <a-entity camera wasd-controls look-controls kinematic-body position="0 1.6 0">
             <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
             <a-entity light="type:spot; intensity:1.4; castShadow:true; shadowBias:-0.0005; angle:40; penumbra:0.3;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
@@ -53,7 +53,7 @@
         </a-entity>         
 
         <!--Building Room-->
-            <a-entity id="floor" static-body geometry="primitive: plane; width: 80; height:80;" position="0, 1, 0" rotation="-90, 0, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-entity id="floor" static-body geometry="primitive: plane; width: 80; height:80;" position="0, .1, 0" rotation="-90, 0, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
             <a-entity id="wall" static-body geometry="primitive: plane; width: 80; height:40;" position="40, .05, 0" rotation="0, -90, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
             <a-entity id="wall" static-body geometry="primitive: plane; width: 80; height:40;" position="-40, .05, 0" rotation="0, 90, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
             <a-entity id="wall" static-body geometry="primitive: plane; width: 80; height:40;" position="0, .05, 40" rotation="0, 180, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
