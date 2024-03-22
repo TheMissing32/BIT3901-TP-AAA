@@ -1,12 +1,51 @@
 <html>
-    <head></head>
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game Menu</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <style>
+        body {
+          background-color: #f8f9fa; 
+        }
+        .menu-container {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        .menu-title {
+          color: #007bff; 
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .menu-list {
+          list-style-type: none;
+          padding: 0;
+        }
+        .menu-list li {
+          margin-bottom: 10px;
+        }
+        .menu-list li a {
+          color: #343a40; 
+          text-decoration: none;
+          font-size: 18px;
+          transition: color 0.3s ease;
+        }
+        .menu-list li a:hover {
+          color: #007bff; 
+        }
+      </style>
+    </head>
     <body>
-        <h1>Welcome to the menu</h1>
-        <ul>
-            <li><a href="/HowToPlay.html">How To Play</a></li>
-            <li><a href="/inventory.html">Access Inventory</a></li>
-            <li><a href="/homeScreen.html">Return Home</a></li>
-            <li><a href="/lighthouse_Floor1.html">Lighthouse</a></li>
+      <div class="menu-container">
+        <h1 class="menu-title">Game Menu</h1>
+        <ul class="menu-list">
+          <li><a href="/HowToPlay.html">How To Play</a></li>
+          <li><a href="/inventory.html">Access Inventory</a></li>
+          <li><a href="/lighthouse_Floor1.html">Lighthouse</a></li>
+          <li><a href="/homeScreen.html">Return Home</a></li>
         </ul>
+      </div>
     </body>
 </html>

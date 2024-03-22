@@ -1,10 +1,79 @@
 <html>
-    <head></head>
+    <head>
+        <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mode Select</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <style>
+        body {
+          padding-top: 50px; 
+        }
+        .navbar {
+          background-color: #00a6ff; 
+        }
+        .navbar-brand,
+        .navbar-nav .nav-link {
+          color: #ffffff; 
+        }
+        .navbar-nav .nav-link:hover {
+          color: #f8f9fa; 
+        }
+        .jumbotron {
+          background-color: #f8f9fa; 
+        }
+        .jumbotron h1,
+        .jumbotron p {
+          text-align: center; 
+        }
+        .card {
+          margin-bottom: 20px; 
+        }
+      </style>
     <body>
-        <p>Play as clue solver or object gatherer</p>
-        <ul>
-            <li><a href="/innovationLab.html">Clue collecter</a></li>
-            <li><a href="/island.html">Object Gatherer</a></li>
-        </ul>
-    </body>
+          <!-- Navbar -->
+  <nav class="navbar navbar-expand-md fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Going Up</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+     
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Select your role</h1>
+      <p>Play as a clue collector or an object gatherer</p>
+    </div>
+    <!-- Card deck for displaying options -->
+    <div class="card-deck">
+      <!-- Card 1 - Clue Collector -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Clue Collector</h5>
+          <p class="card-text">Explore the Innovation Lab to discover historical artifacts and help your teammate.</p>
+          <a href="/innovationLab.html" class="btn btn-primary">Play Now</a>
+        </div>
+      </div>
+      <!-- Card 2 - Object Gatherer -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Object Gatherer</h5>
+          <p class="card-text">Discover historical artifacts on the mysterious island and furnish the lighthouse.</p>
+          <a href="/island.html" class="btn btn-primary">Play Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
+
