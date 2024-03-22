@@ -41,16 +41,22 @@
       </script>
     </head>
     <body>
-    <a-scene background="color: blue" scale="2, 2, 2"; environment=" scale: 2, 2, 2; ground: flat; dressing: trees; dressingAmount: 200; dressingColor: #497952; dressingOnPlayArea: 0.00; dressingScale: 8.7; groundTexture:walkernoise; groundColor: #40618c; groundColor2: #73b3ce; fog:0.86; playArea: 2; groundScale: 2;">
-        <a-entity camera wasd-controls look-controls kinematic-body position="0 1.6 0">
+    <a-scene background="color: blue" scale="2, 2, 2"; environment=" scale: 2, 2, 2; ground: flat; dressing: trees; dressingAmount: 200; dressingColor: #497952; dressingOnPlayArea: 0.00; dressingScale: 8.7; groundTexture:walkernoise; groundColor: #40618c; groundColor2: #73b3ce; fog:0.86; seed:4; playArea: 2; groundScale: 2;">
+      <a-assets timeout="10000">
+    
+        <a-asset-item id="lighthouse_mdl" response-type="arraybuffer" src="/assets/lighthouse.glb"></a-asset-item>
+
+      </a-assets>
+  
+      <a-entity camera wasd-controls look-controls kinematic-body position="0 1.6 0">
             <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
             <a-entity light="type:spot; intensity:1.4; castShadow:true; shadowBias:-0.0005; angle:40; penumbra:0.3;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
             
 
             <!--Guys we can have a menu!!! (This also means lighthouse guy)-->
-            <a-entity id="menu" position="-0.45 .195 -0.3" geometry="primitive: plane; height: 0.1; width: 0.1" material="color: blue;">
+            <a-entity id="menu" position="-0.475 .22 -0.3" geometry="primitive: plane; height: 0.05; width: 0.05" material="color: blue;">
                 <a-entity id="menu_button" text="value:Menu; 
-                          color:white; font:roboto; width:0.2; anchor:left; baseline:top;" ></a-entity>
+                          color:white; font:roboto; width:0.2; align:center; anchor:center; baseline:top;" ></a-entity>
 
             </a-entity>
 
@@ -61,7 +67,7 @@
           <a-box static-body position="-1 0.5 -3"></a-box> 
           <a-entity id="bridge" static-body geometry="primitive: plane; width: 5; height:15" position="-70 0.15 -65" rotation="-90, 45, 0" material="color:grey"></a-entity>
           <a-entity id="circleToRoom1" static-body geometry="primitive: circle; radius: 2;" position="-70 2 -65" rotation="0, 45, 0" material="color:red"></a-entity>
-          <a-cylinder id="lighthouse" static-body position="-75 0.75 -70" radius="7" height="50"></a-cylinder>
+          <a-entity id="lighthouse" static-body position="-75 0.75 -70" scale=".8 .8 .8" rotation="0, 45, 0" gltf-model="#lighthouse_mdl"></a-entity>
 
             <!--Forest for the soup/witch feel-->
         <!--<a-entity environment="preset:forest"></a-entity>-->
