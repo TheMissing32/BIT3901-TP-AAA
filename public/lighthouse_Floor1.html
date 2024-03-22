@@ -21,8 +21,6 @@
       <script>
         AFRAME.registerComponent('start-experience', {
           init: function () {
-            //we can't play sound on some browsers until we have some user interaction
-            //this means we should only start playing ambient music after this button is clicked
             console.log('scene loaded');
             document.querySelector('#user-gesture-button').style.display='block';
           }
@@ -33,7 +31,6 @@
           //hide user-gesture overlay
           document.querySelector('#user-gesture-overlay').style.display='none';
           
-          //});groundTexture="none" groundColor="color: #blue" groundColor="color: #0006bf"
         }
       </script>
     </head>
@@ -50,16 +47,29 @@
             <a-entity light="type:spot; intensity:1.4; castShadow:true; shadowBias:-0.0005; angle:40; penumbra:0.3;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
             
             <!--Menu-->
-            <a-entity id="menu" position="-0.45 .195 -0.3" geometry="primitive: plane; height: 0.1; width: 0.1" material="color: blue;">
-                <a-entity text="value:Menu; 
-                          color:white; font:roboto; width:0.2; anchor:left; baseline:top;" ></a-entity>
+            <a-entity id="menu" position="-0.475 .22 -0.3" geometry="primitive: plane; height: 0.05; width: 0.05" material="color: blue;">
+                <a-entity id="menu_button" text="value:Menu; 
+                          color:white; font:roboto; width:0.2; align:center; anchor:center; baseline:top;" ></a-entity>
             </a-entity>
         </a-entity>
 
+            <!--Lighthouse model-->
             <a-entity id="mars" position="0 0 0" rotation="0 -90 0" scale="2.5 2.5 2.5"
             gltf-model="#lighthouse_mdl"></a-entity>
 
+            <!--Zone where  we put the furniture-->
+
+
         <!--<a-entity environment="preset:forest"></a-entity>-->
       </a-scene>
+      <script>
+        const open_Menu = document.getElementById('menu');
+
+        open_Menu.addEventListener('click', function() {
+            console.log('Opening menu window');
+            location.href='/menu.html';  
+        });
+
+      </script>      
     </body>
 </html>

@@ -14,9 +14,33 @@ app.use(express.static(__dirname + '/public')); //set root path of server ...
 app.get('/', function (req, res) {
     res.sendFile( __dirname + '/public/homeScreen.html' );
     });
-//require('aframe');
-//require('aframe-extras');
 
+    app.get( '/island', function( req, res ){ 
+        res.sendFile( __dirname + '/public/island.html' );
+    });
+    app.get( '/innovationLab', function( req, res ){ 
+        res.sendFile( __dirname + '/public/innovationLab.html' );
+    });
+    app.get( '/lighthouse_Floor1', function( req, res ){ 
+        res.sendFile( __dirname + '/public/lighthouse_Floor1.html' );
+    });
+            
+
+
+    io.on('connection', (socket) => {
+        console.log( socket.id + " connected" );
+    
+        socket.on('disconnect', () => {
+            console.log( socket.id + " disconnected" );
+        });
+    
+        socket.on("square", (data) => {
+            console.log( "Square in the right spot" );
+            io.emit("square_Good", "green");
+            //io.emit("color_change", {r:255, g:0, b:0});
+        });
+
+    });
 server.listen(LISTEN_PORT); //starts server
 app.use(express.static(__dirname + '/public')); //the client can access these files via http
 
