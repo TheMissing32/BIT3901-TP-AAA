@@ -49,8 +49,12 @@
                 <a-entity id="menu_button" text="value:Menu; 
                           color:white; font:roboto; width:0.2; align:center; anchor:center; baseline:top;" ></a-entity>
             </a-entity>
+            <a-entity id="oldman" position="0.475 0.22 -0.3" geometry="primitive: circle; radius: 0.02;" material="color: white;">
+                <a-entity text="value:Old Man; 
+                          color:white; font:roboto; width:0.2; align:center; anchor:center; baseline:top;" ></a-entity>
+            </a-entity>
+        </a-entity>    
 
-        </a-entity>         
 
         <!--Building Room-->
             <a-entity id="floor" static-body geometry="primitive: plane; width: 80; height:80;" position="0, .1, 0" rotation="-90, 0, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
@@ -60,7 +64,7 @@
             <a-entity id="wall" static-body geometry="primitive: plane; width: 80; height:40;" position="0, .05, -40" rotation="0, 0, 0" material="color:grey;" shadow="cast:false; receive:true;" obb-collider></a-entity>
 
             <!--Table with blueprints of the rooms-->
-            <a-entity id="tableTop" static-body geometry="primitive: plane; width: 5; height:3;" position="0, 4, 0" rotation="-90, 0, 0" material="color:brown;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-entity id="tableTop" static-body geometry="primitive: plane; width: 5; height:3;" position="0, 1.1, -4" rotation="-90, 0, 0" material="color:purple;" shadow="cast:false; receive:true;" obb-collider></a-entity>
 
             <!--Forest for the soup/witch feel-->
         <!--<a-entity environment="preset:forest"></a-entity>-->
