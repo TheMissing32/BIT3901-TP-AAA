@@ -47,7 +47,8 @@
         <a-asset-item id="lighthouse_mdl" response-type="arraybuffer" src="/assets/lighthouse.glb"></a-asset-item>
 
       </a-assets>
-  
+      <a-entity light="type: ambient; color: #CCC"></a-entity>
+ 
       <a-entity camera wasd-controls look-controls kinematic-body position="0 1.6 0">
             <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
             <a-entity light="type:spot; intensity:1.4; castShadow:true; shadowBias:-0.0005; angle:40; penumbra:0.3;" position="0.5 -0.5 0" rotation="0 0 0"></a-entity>
@@ -83,8 +84,8 @@
 
         const goToLevelOne = document.getElementById('circleToRoom1');
 
-        open_Menu.addEventListener('click', function() {
-          console.log('Opening menu window');
+        goToLevelOne.addEventListener('click', function() {
+          console.log('Opening first floor');
           location.href='/lighthouse_Floor1.html';  
         });
         

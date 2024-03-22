@@ -41,6 +41,7 @@
         <a-asset-item id="lighthouse_mdl" response-type="arraybuffer" src="/assets/lvl1Textured.glb"></a-asset-item>
 
       </a-assets>
+      <a-entity light="type: ambient; intensity: 3; color: #CCC"></a-entity>
 
      <a-entity camera wasd-controls look-controls kinematic-body position="0 1.6 0">
             <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
@@ -58,10 +59,15 @@
             gltf-model="#lighthouse_mdl"></a-entity>
 
             <!--Zone where  we put the furniture-->
+            <a-entity id="floor" static-body geometry="primitive: plane; width: 3; height:3;" position="-5, 0.1, -4" rotation="-90, 15, 0" material="color:red;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-entity id="floor" static-body geometry="primitive: plane; width: 4; height:4;" position="6, 0.1, 2" rotation="-90, 0, 0" material="color:red;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-entity id="floor" static-body geometry="primitive: circle; radius: 1;" position="-2, 0.1, 6" rotation="-90, 0, 0" material="color:red;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-entity id="floor" static-body geometry="primitive: circle; radius: 1;" position="-1, 0.1, -6" rotation="-90, 0, 0" material="color:red;" shadow="cast:false; receive:true;" obb-collider></a-entity>
+            <a-entity id="floor" static-body geometry="primitive: plane; width: 2; height:3;" position="3, 0.1, -3" rotation="-90, 45, 0" material="color:red;" shadow="cast:false; receive:true;" obb-collider></a-entity>
 
 
-        <!--<a-entity environment="preset:forest"></a-entity>-->
       </a-scene>
+
       <script>
         const open_Menu = document.getElementById('menu');
 
