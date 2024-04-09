@@ -24,7 +24,7 @@ app.get('/', function (req, res) {
     app.get( '/lighthouse_Floor1', function( req, res ){ 
         res.sendFile( __dirname + '/public/lighthouse_Floor1.html' );
     });
-            
+    //require('aframe-physics-system');        
 
 
     io.on('connection', (socket) => {
