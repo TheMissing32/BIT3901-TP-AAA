@@ -69,8 +69,10 @@
           <a-entity id="lighthouse" static-body position="-75 0.75 -70" scale=".8 .8 .8" rotation="0, 45, 0" gltf-model="#lighthouse_mdl"></a-entity>
 
           <!--Populate scene-->
-          <a-entity addToInventory id="key" static-body dragndrop="0" position="1 0.1 -3" scale=".3 .3 .3" rotation="0, 45, 0" gltf-model="#key_mdl"></a-entity>
-          <a-entity id="lantern" static-body dragndrop="0" position="-1 0.1 -3" scale=".4 .4 .4" rotation="0, 45, 0" gltf-model="#lantern_mdl"></a-entity>
+          <a-entity> dragndrop="0">
+            <a-entity  id="key" dragndrop="0" addtoinventory="duration:18000; item_id:key;" position="1 0.1 -3" scale=".3 .3 .3" rotation="0, 45, 0" gltf-model="#key_mdl"></a-entity>
+          </a-entity>
+          <a-entity id="lantern" static-body dragndrop="0" addtoinventory="duration:18000; item_id:lantern;" position="-1 0.1 -3" scale=".4 .4 .4" rotation="0, 45, 0" gltf-model="#lantern_mdl"></a-entity>
           <a-entity id="stove" static-body dragndrop="1" position="-4 0.1 -2" scale=".1 .1 .1" rotation="0, 45, 0" gltf-model="#stove_mdl"></a-entity>
           <a-entity id="bridge" static-body geometry="primitive: plane; width: 5; height:15" position="-70 0.15 -65" rotation="-90, 45, 0" material="color:grey"></a-entity>
 
