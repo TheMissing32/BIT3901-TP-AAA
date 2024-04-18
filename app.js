@@ -40,6 +40,11 @@ app.get('/', function (req, res) {
             //io.emit("color_change", {r:255, g:0, b:0});
         });
 
+        socket.on("add:key", (data) => {
+            console.log("key event recieved");
+            io.emit("add_key", "key");
+        })
+
     });
 server.listen(LISTEN_PORT); //starts server
 app.use(express.static(__dirname + '/public')); //the client can access these files via http

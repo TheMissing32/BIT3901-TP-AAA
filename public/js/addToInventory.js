@@ -13,14 +13,35 @@ AFRAME.registerComponent('addtoinventory', {
         console.log("js exists");
         //const Context_AF = this;
         let socket = io('http://localhost:8080');
+        var data = this.data;
 
         socket.on('connect', (userData) => {
             console.log('I exist!');
+            
+            //socket.emit();
+            let myKey = document.querySelector("#key");
+
+            myKey.addEventListener('click', function(){
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === 'i') {
+                        console.log('i key was pressed');
+                        socket.emit('add:', data.item_id);
+                        console.log('key');
+                        myKey.setAttribute('visible', false);
+
+            }
+                });
+
+            });
+
+            document.querySelector('#lantern').addEventListener('click', function(){
+                socket.emit('add:', data.item_id);
+                console.log('lantern');
+            });
         });
-        var data = this.data;
         let scene = document.querySelector('a-scene');
         const saveKey = document.getElementById('key');
-        scene.addEventListener('click', function() {
+        /*scene.addEventListener('click', function() {
    
             //let item_id = this.el.getAttribute('id');
             console.log("Item ID:", data.item_id);
@@ -28,11 +49,14 @@ AFRAME.registerComponent('addtoinventory', {
                 case "key":
                     console.log("Clicked item is the key");
                     break;
+                case "lantern":
+                    console.log("Clicked item is the lantern");
+                    break;
                 default:
                     console.log("No valid item was clicked");
             }
  
-        })
+        })*/
 
     }
 })
