@@ -14,6 +14,7 @@ AFRAME.registerComponent('addtoinventory', {
         //const Context_AF = this;
         let socket = io('http://localhost:8080');
         var data = this.data;
+        let keyPressed = false;
 
         socket.on('connect', (userData) => {
             console.log('I exist!');
@@ -22,21 +23,41 @@ AFRAME.registerComponent('addtoinventory', {
             let myKey = document.querySelector("#key");
 
             myKey.addEventListener('click', function(){
-                document.addEventListener('keydown', function(event) {
-                    if (event.key === 'i') {
-                        console.log('i key was pressed');
-                        socket.emit('add:', data.item_id);
-                        console.log('key');
-                        myKey.setAttribute('visible', false);
+                console.log('i key was pressed');
+                socket.emit('add_key');
+                console.log('key');
+                myKey.parentNode.removeChild(myKey);                
+                /*document.addEventListener('keydown', function(event) {
+                    if (event.key === 'i' && myKey) {
+                        keyPressed = true;
+                        console.log("key is true");
+                        if(keyPressed == true)
+                        {
 
-            }
+                            keyPressed = false;
+                        }         
+                        else
+                        {
+                            console.log('item doesnt exist');
+                        }               
+                    
+                    }
                 });
 
-            });
+                document.addEventListener('keyup', function(event) {
+                    if(event.key === 'i') {
+                        keyPressed = false;
+                        console.log("key is false");
+                    }
+                });*/
 
-            document.querySelector('#lantern').addEventListener('click', function(){
+            });
+            let myLantern = document.querySelector("#lantern");
+            myLantern.addEventListener('click', function(){
                 socket.emit('add:', data.item_id);
                 console.log('lantern');
+                myKey.parentNode.removeChild(myLantern);                
+
             });
         });
         let scene = document.querySelector('a-scene');

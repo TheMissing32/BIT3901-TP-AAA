@@ -40,7 +40,7 @@ app.get('/', function (req, res) {
             //io.emit("color_change", {r:255, g:0, b:0});
         });
 
-        socket.on("add:key", (data) => {
+        socket.on("add_key", (data) => {
             console.log("key event recieved");
             io.emit("add_key", "key");
         })
