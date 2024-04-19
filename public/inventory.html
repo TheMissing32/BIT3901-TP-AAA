@@ -14,21 +14,23 @@
         <a-scene background="color: blue" scale="2, 2, 2"; environment=" scale: 2, 2, 2; ground: flat; dressing: trees; dressingAmount: 200; dressingColor: #497952; dressingOnPlayArea: 0.00; dressingScale: 8.7; groundTexture:walkernoise; groundColor: #40618c; groundColor2: #73b3ce; fog:0.86; seed:4; playArea: 2; groundScale: 2;">
 
 
-        <a-entity id="key" static-body geometry="primitive: plane; width: 5; height:15" position="0 0.15 0" rotation="-90, 45, 0" material="color:grey"></a-entity>
+        <a-entity id="inv_key" static-body geometry="primitive: plane; width: 5; height:15" position="0 0.15 0" rotation="-90, 45, 0" material="color:grey"></a-entity>
 
         </a-scene>
         <script src="/socket.io/socket.io.js"></script>
         <script>
             let socket = io('http://localhost:8080');
-            let el = document.querySelector("#key"); 
+            let el = document.querySelector("#inv_key"); 
             el.setAttribute("visible",false);
+            var key_vis = localStorage.getItem('inv_Key');
+            console.log('key is: ', key_vis);
+            el.setAttribute("visible",key_vis);
 
             socket.on('connect', (userData) => {
                 console.log('I exist!');
 
                 socket.on('add_key', (data) => {
                     console.log("key added");
-                    el.setAttribute("visible",true);
                 });
 
             })

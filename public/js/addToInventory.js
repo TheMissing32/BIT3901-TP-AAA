@@ -19,17 +19,11 @@ AFRAME.registerComponent('addtoinventory', {
         socket.on('connect', (userData) => {
             console.log('I exist!');
             
-            //socket.emit();
-            let myKey = document.querySelector("#key");
+            //socket.emit();                socket.emit('add_key');
 
-            myKey.addEventListener('click', function(){
-                console.log('i key was pressed');
-                socket.emit('add_key');
-                console.log('key');
-                myKey.parentNode.removeChild(myKey);                
+                      
                 /*document.addEventListener('keydown', function(event) {
                     if (event.key === 'i' && myKey) {
-                        keyPressed = true;
                         console.log("key is true");
                         if(keyPressed == true)
                         {
@@ -59,11 +53,32 @@ AFRAME.registerComponent('addtoinventory', {
                 myKey.parentNode.removeChild(myLantern);                
 
             });
-        });
+
+
+        
         let scene = document.querySelector('a-scene');
         const saveKey = document.getElementById('key');
-        /*scene.addEventListener('click', function() {
-   
+
+        let myKey = document.querySelector("#key");
+        let invKey = document.querySelector("inv_key");
+        myKey.addEventListener('click', function(){
+                console.log('i key was pressed');
+                keyPressed = true;
+                localStorage.setItem('inv_Key', 'true');
+                myKey.parentNode.removeChild(myKey);      
+            });
+
+            var key_vis = localStorage.getItem('inv_Key');
+            console.log('key stat: ', key_vis);
+            if(key_vis == 'true')
+            {
+                console.log("key stays gone");
+                myKey.setAttribute("visible", false);
+                //myKey.parentNode.removeChild(myKey);                
+            } 
+            
+            /*scene.addEventListener('click', function() {
+
             //let item_id = this.el.getAttribute('id');
             console.log("Item ID:", data.item_id);
             switch(data.item_id){
